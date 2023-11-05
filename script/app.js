@@ -15,8 +15,6 @@ const errorStateYear = document.querySelector('.colorYear')
 
 let state = false;
 
-
-
 btnSubmit.addEventListener('click', () => {
 
     if(inputDay.value === ''){
@@ -142,10 +140,9 @@ const resultYear = document.getElementById('years')
 
 function validate () {
     if(inputDay.value === '' || inputMonth.value === '' || inputYear.value === '' 
-       || inputDay.value > 31 || inputMonth.value > 12 || inputYear.value < 1900 || inputYear.value > 2100
+       || inputDay.value > 31 || inputMonth.value > 12 || inputYear.value < 1900 || inputYear.value > 2100||
+       isNaN(inputDay.value) || isNaN(inputMonth.value) || isNaN(inputYear.value)
     ){
-        clear()
-    }else if(isNaN(inputDay.value) || isNaN(inputMonth.value) || isNaN(inputYear.value)){
         clear()
     }else{
         const date = new Date();
