@@ -17,6 +17,9 @@ let state = false;
 
 btnSubmit.addEventListener('click', () => {
 
+    const date = new Date();
+
+
     if(inputDay.value === ''){
         errorStateDay.style.color = 'hsl(0, 100%, 67%)'
         inputDay.style.border = '1px solid hsl(0, 100%, 67%)'
@@ -85,7 +88,7 @@ btnSubmit.addEventListener('click', () => {
         errorYear.classList.add('active')
         errorYear.textContent = 'Must be a valid Year'
         clear()
-    }else if(inputYear.value <= 1900 || inputYear.value > 2100){
+    }else if(inputYear.value <= 1900 || inputYear.value >= date.getFullYear()){
         errorStateYear.style.color = 'hsl(0, 100%, 67%)'
         inputYear.style.border = '1px solid hsl(0, 100%, 67%)'
         inputYear.style.color = 'hsl(0, 100%, 67%)'
@@ -139,16 +142,18 @@ const resultMonth = document.getElementById('months')
 const resultYear = document.getElementById('years')
 
 function validate () {
+    const date = new Date();
+    const dayValue = date.getDate();
+    const monthValue = date.getMonth() + 1;
+    const yearValue = date.getFullYear();
+
     if(inputDay.value === '' || inputMonth.value === '' || inputYear.value === '' 
-       || inputDay.value > 31 || inputMonth.value > 12 || inputYear.value < 1900 || inputYear.value > 2100||
+       || inputDay.value > 31 || inputMonth.value > 12 || inputYear.value < 1900 || inputYear.value >= yearValue||
        isNaN(inputDay.value) || isNaN(inputMonth.value) || isNaN(inputYear.value)
     ){
         clear()
     }else{
-        const date = new Date();
-        const dayValue = date.getDate();
-        const monthValue = date.getMonth() + 1;
-        const yearValue = date.getFullYear();
+        
     
         let d = dayValue - inputDay.value;
         let m = monthValue - inputMonth.value;
