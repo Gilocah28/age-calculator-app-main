@@ -116,7 +116,7 @@ btnSubmit.addEventListener('click', () => {
         inputYear.style.border = '1px solid hsl(0, 100%, 67%)'
         inputYear.style.color = 'hsl(0, 100%, 67%)'
         errorYear.classList.add('active')
-        errorYear.textContent = `'The maximun range is year ${date.getFullYear()}`
+        errorYear.textContent = `The maximun range is year ${date.getFullYear()}`
         clear()
     }else{
         state = true
