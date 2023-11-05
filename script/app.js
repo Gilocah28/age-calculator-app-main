@@ -41,6 +41,13 @@ btnSubmit.addEventListener('click', () => {
         errorDay.classList.add('active')
         errorDay.textContent = 'The day is max of 31'
         clear()
+    }else if (inputDay.value < 1){
+        errorStateDay.style.color = 'hsl(0, 100%, 67%)'
+        inputDay.style.border = '1px solid hsl(0, 100%, 67%)'
+        inputDay.style.color = 'hsl(0, 100%, 67%)'
+        errorDay.classList.add('active')
+        errorDay.textContent = 'The day is min of 1'
+        clear()
     }else{
         state = true
     }
