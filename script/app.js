@@ -88,12 +88,19 @@ btnSubmit.addEventListener('click', () => {
         errorYear.classList.add('active')
         errorYear.textContent = 'Must be a valid Year'
         clear()
-    }else if(inputYear.value <= 1900 || inputYear.value >= date.getFullYear()){
+    }else if(inputYear.value < 1900){
         errorStateYear.style.color = 'hsl(0, 100%, 67%)'
         inputYear.style.border = '1px solid hsl(0, 100%, 67%)'
         inputYear.style.color = 'hsl(0, 100%, 67%)'
         errorYear.classList.add('active')
-        errorYear.textContent = 'The range of year is not valid'
+        errorYear.textContent = 'The minimun range is year 1900'
+        clear()
+    }else if(inputYear.value >= date.getFullYear()){
+        errorStateYear.style.color = 'hsl(0, 100%, 67%)'
+        inputYear.style.border = '1px solid hsl(0, 100%, 67%)'
+        inputYear.style.color = 'hsl(0, 100%, 67%)'
+        errorYear.classList.add('active')
+        errorYear.textContent = `'The maximun range is year ${date.getFullYear()}`
         clear()
     }else{
         state = true
