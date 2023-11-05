@@ -70,6 +70,15 @@ btnSubmit.addEventListener('click', () => {
         errorMonth.textContent = 'The month is max of 12'
         clear()
 
+    }else if (inputMonth.value < 1) {
+
+        errorStateMonth.style.color = 'hsl(0, 100%, 67%)'
+        inputMonth.style.border = '1px solid hsl(0, 100%, 67%)'
+        inputMonth.style.color = 'hsl(0, 100%, 67%)'
+        errorMonth.classList.add('active')
+        errorMonth.textContent = 'The month is min of 1'
+        clear()
+
     }else{
         state = true
     }
