@@ -92,6 +92,14 @@ btnSubmit.addEventListener('click', () => {
         errorYear.textContent = 'Must be a valid Year'
         clear()
         state = false
+    }else if(inputYear.value <= 1900 || inputYear.value > 2100){
+        errorStateYear.style.color = 'hsl(0, 100%, 67%)'
+        inputYear.style.border = '1px solid hsl(0, 100%, 67%)'
+        inputYear.style.color = 'hsl(0, 100%, 67%)'
+        errorYear.classList.add('active')
+        errorYear.textContent = 'The range of year is not valid'
+        clear()
+        state = false
     }else{
         state = true
     }
