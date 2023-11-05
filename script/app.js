@@ -19,7 +19,6 @@ let state = false;
 
 btnSubmit.addEventListener('click', () => {
 
-
     if(inputDay.value === ''){
         errorStateDay.style.color = 'hsl(0, 100%, 67%)'
         inputDay.style.border = '1px solid hsl(0, 100%, 67%)'
@@ -27,7 +26,6 @@ btnSubmit.addEventListener('click', () => {
         errorDay.classList.add('active')
         errorDay.textContent = 'Field is empty'
         clear()
-        state = false
     }else if(isNaN(inputDay.value)){
         errorStateDay.style.color = 'hsl(0, 100%, 67%)'
         inputDay.style.border = '1px solid hsl(0, 100%, 67%)'
@@ -35,7 +33,6 @@ btnSubmit.addEventListener('click', () => {
         errorDay.classList.add('active')
         errorDay.textContent = 'Must be a valid Date'
         clear()
-        state = false
     }else if (inputDay.value > 31){
         errorStateDay.style.color = 'hsl(0, 100%, 67%)'
         inputDay.style.border = '1px solid hsl(0, 100%, 67%)'
@@ -43,7 +40,6 @@ btnSubmit.addEventListener('click', () => {
         errorDay.classList.add('active')
         errorDay.textContent = 'The day is max of 31'
         clear()
-        state = false
     }else{
         state = true
     }
@@ -55,7 +51,7 @@ btnSubmit.addEventListener('click', () => {
         inputMonth.style.border = '1px solid hsl(0, 100%, 67%)'
         inputMonth.style.color = 'hsl(0, 100%, 67%)'
         clear()
-        state = false
+        
     }else if (isNaN(inputMonth.value)){
         errorStateMonth.style.color = 'hsl(0, 100%, 67%)'
         inputMonth.style.border = '1px solid hsl(0, 100%, 67%)'
@@ -63,15 +59,16 @@ btnSubmit.addEventListener('click', () => {
         errorMonth.classList.add('active')
         errorMonth.textContent = 'Must be a valid Month'
         clear()
-        state = false
+
     }else if (inputMonth.value > 12) {
+
         errorStateMonth.style.color = 'hsl(0, 100%, 67%)'
         inputMonth.style.border = '1px solid hsl(0, 100%, 67%)'
         inputMonth.style.color = 'hsl(0, 100%, 67%)'
         errorMonth.classList.add('active')
         errorMonth.textContent = 'The month is max of 12'
         clear()
-        state = false
+
     }else{
         state = true
     }
@@ -83,7 +80,6 @@ btnSubmit.addEventListener('click', () => {
         inputYear.style.border = '1px solid hsl(0, 100%, 67%)'
         inputYear.style.color = 'hsl(0, 100%, 67%)'
         clear()
-        state = false
     }else if (isNaN(inputYear.value)){
         errorStateYear.style.color = 'hsl(0, 100%, 67%)'
         inputYear.style.border = '1px solid hsl(0, 100%, 67%)'
@@ -91,7 +87,6 @@ btnSubmit.addEventListener('click', () => {
         errorYear.classList.add('active')
         errorYear.textContent = 'Must be a valid Year'
         clear()
-        state = false
     }else if(inputYear.value <= 1900 || inputYear.value > 2100){
         errorStateYear.style.color = 'hsl(0, 100%, 67%)'
         inputYear.style.border = '1px solid hsl(0, 100%, 67%)'
@@ -99,14 +94,13 @@ btnSubmit.addEventListener('click', () => {
         errorYear.classList.add('active')
         errorYear.textContent = 'The range of year is not valid'
         clear()
-        state = false
     }else{
         state = true
     }
 
     if(state === true){
+        btnErrorRemove()
         validate()
-        state = false
     }
 })
 
@@ -131,6 +125,13 @@ inputYear.addEventListener('click',()=>{
     errorYear.classList.remove('active')
 })
 
+function btnError (){
+    btnSubmit.classList.add('btnErr')
+}
+function btnErrorRemove (){
+    btnSubmit.classList.remove('btnErr')
+}
+
 
 
 const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -140,7 +141,9 @@ const resultMonth = document.getElementById('months')
 const resultYear = document.getElementById('years')
 
 function validate () {
-    if(inputDay.value === '' || inputMonth === '' || inputYear=== ''){
+    if(inputDay.value === '' || inputMonth.value === '' || inputYear.value === '' 
+       || inputDay.value > 31 || inputMonth.value > 12 || inputYear.value < 1900 || inputYear.value > 2100
+    ){
         clear()
     }else if(isNaN(inputDay.value) || isNaN(inputMonth.value) || isNaN(inputYear.value)){
         clear()
@@ -170,8 +173,10 @@ function validate () {
 }
 
 function clear(){
+    state = false
     resultDay.textContent = '--';
     resultMonth.textContent = '--';
     resultYear.textContent = '--';
+    btnError()
 }
 

@@ -128,7 +128,7 @@ main {
 .main___container form .form___container .fiedgroup .active {
   display: block;
 }
-.main___container form #submit {
+.main___container form .btn {
   position: absolute;
   bottom: -2rem;
   right: 0;
@@ -141,19 +141,19 @@ main {
   animation: rotateOut 500ms ease-in-out;
 }
 @media screen and (max-width: 600px) {
-  .main___container form #submit {
+  .main___container form .btn {
     width: 50px;
     height: 50px;
     left: 45%;
     bottom: -1.5rem;
   }
 }
-.main___container form #submit:hover {
+.main___container form .btn:hover {
   transition: all 500ms ease-in-out;
   background-color: hsl(0, 0%, 8%);
   cursor: pointer;
 }
-.main___container form #submit:focus {
+.main___container form .btn:focus {
   animation: rotate 500ms ease-in-out;
   transform: rotate(0deg);
   background-color: hsl(0, 0%, 8%);
@@ -173,6 +173,12 @@ main {
   to {
     transform: rotate(180deg);
   }
+}
+.main___container form .btnErr {
+  background-color: hsl(0, 100%, 67%);
+}
+.main___container form .btnErr:focus {
+  background-color: hsl(0, 100%, 67%);
 }
 @media screen and (max-width: 600px) {
   .main___container .main___result {

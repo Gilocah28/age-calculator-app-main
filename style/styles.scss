@@ -98,7 +98,7 @@
                 }
             }            
         }
-        #submit{
+        .btn{
             position: absolute;
             bottom: -2rem;
             right: 0;
@@ -139,6 +139,13 @@
             }
             
         }
+        .btnErr{
+            background-color: $Lightred;
+            &:focus{
+                background-color: $Lightred;
+            }
+            
+        }
     }
 
 
@@ -152,19 +159,5 @@
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
