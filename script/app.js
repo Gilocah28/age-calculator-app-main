@@ -64,7 +64,7 @@ btnSubmit.addEventListener('click', () => {
         errorMonth.textContent = 'Must be a valid Month'
         clear()
         state = false
-    }else if (inputMonth > 12) {
+    }else if (inputMonth.value > 12) {
         errorStateMonth.style.color = 'hsl(0, 100%, 67%)'
         inputMonth.style.border = '1px solid hsl(0, 100%, 67%)'
         inputMonth.style.color = 'hsl(0, 100%, 67%)'
@@ -115,7 +115,6 @@ inputDay.addEventListener('click',()=>{
     inputDay.style.border = '1px solid hsl(0, 0%, 86%)'
     inputDay.style.color = 'hsl(0, 1%, 44%)'
     errorDay.classList.remove('active')
-    inputDay.value = ''
 })
 
 inputMonth.addEventListener('click',()=>{
@@ -123,7 +122,6 @@ inputMonth.addEventListener('click',()=>{
     inputMonth.style.border = '1px solid hsl(0, 0%, 86%)'
     inputMonth.style.color = 'hsl(0, 1%, 44%)'
     errorMonth.classList.remove('active')
-    inputMonth.value = ''
 })
 
 inputYear.addEventListener('click',()=>{
@@ -131,7 +129,6 @@ inputYear.addEventListener('click',()=>{
     inputYear.style.border = '1px solid hsl(0, 0%, 86%)'
     inputYear.style.color = 'hsl(0, 1%, 44%)'
     errorYear.classList.remove('active')
-    inputYear.value = ''
 })
 
 

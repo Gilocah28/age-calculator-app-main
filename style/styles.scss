@@ -47,9 +47,8 @@
                 flex-direction: column;
                 justify-content: flex-start;
                 flex: .8;
-                @include tablet{
-                    justify-content: space-between;
-                }
+
+               
 
 
                 label{
@@ -62,10 +61,10 @@
                 }
 
                 input{
-                    width: 130px;
+                    width: 140px;
                     height: 60px;
                     border-radius: 10px;
-                    padding: 0 1rem;
+                    padding: 0 .5rem 0 1rem;
                     border: 1px solid $Lightgrey;
                     color: $Smokeygrey;
                     font-weight: 800;
