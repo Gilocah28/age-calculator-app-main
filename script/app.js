@@ -41,7 +41,7 @@ btnSubmit.addEventListener('click', () => {
         errorDay.classList.add('active')
         errorDay.textContent = 'The day is max of 31'
         clear()
-    }else if (inputDay.value < 1){
+    }else if (inputDay.value <= 0){
         errorStateDay.style.color = 'hsl(0, 100%, 67%)'
         inputDay.style.border = '1px solid hsl(0, 100%, 67%)'
         inputDay.style.color = 'hsl(0, 100%, 67%)'
@@ -77,7 +77,7 @@ btnSubmit.addEventListener('click', () => {
         errorMonth.textContent = 'The month is max of 12'
         clear()
 
-    }else if (inputMonth.value < 1) {
+    }else if (inputMonth.value <= 0) {
 
         errorStateMonth.style.color = 'hsl(0, 100%, 67%)'
         inputMonth.style.border = '1px solid hsl(0, 100%, 67%)'
